@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class zombie : MonoBehaviour
+{
+  public GameObject zom;
+  [SerializeField] private float speed = 1000.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.U))
+        zombie_rotate(0);
+        else if(Input.GetKeyDown(KeyCode.X))
+        zombie_rotate(1);
+    }
+   void zombie_rotate(int Z)
+    { 
+
+   if(Z==0)
+    zom.transform.Rotate(speed * Time.deltaTime * Vector3.up);
+   if(Z==1)
+    zom.transform.Rotate(-speed * Time.deltaTime * Vector3.down);
+    }
+}
